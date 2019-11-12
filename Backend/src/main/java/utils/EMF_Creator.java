@@ -120,16 +120,6 @@ public class EMF_Creator {
             pw = System.getenv("PW");
             connection_str = System.getenv("CONNECTION_STR") + Settings.getPropertyValue("dbdeploy.database");
         }
-        /*
-        On your server in /opt/tomcat/bin/setenv.sh   add the following WITH YOUR OWN VALUES
-        
-        export DEPLOYED="DEV_ON_DIGITAL_OCEAN"
-        export USER="dev"
-        export PW="ax2"
-        export CONNECTION_STR="jdbc:mysql://localhost:3306/mydb"
-        
-        Then save the file, and restart tomcat: sudo systemctl restart tomcat
-        */
         
         System.out.println("USER ------------> "+user);
         System.out.println("PW --------------> "+pw);
