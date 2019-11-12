@@ -1,11 +1,6 @@
 let URLs = new Map(
     ["Home", "/"],
-    ["Products", "/products"],
-    ["productId", "/poroduct/:id"],
-    ["Contact", "/contact"],
-    ["FAQ", "/FAQ"],
-    ["Basket", "/cart"],
-    ["Checkout", "/checkout"]);
+    ["Login", "/login"]);
 
 
 
