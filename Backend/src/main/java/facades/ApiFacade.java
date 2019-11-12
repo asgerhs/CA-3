@@ -10,6 +10,9 @@ import java.util.Scanner;
  */
 public class ApiFacade {
 
+    
+    //This fetch method returns a string with a json format
+    //based on a given url (using HTTP connection and a request method).
     public String fetch(String urlStr) {
         try {
             URL url = new URL(urlStr);
