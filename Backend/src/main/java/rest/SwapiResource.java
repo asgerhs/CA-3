@@ -6,14 +6,13 @@
 package rest;
 
 import facades.ApiFacade;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -39,13 +38,28 @@ public class SwapiResource {
         return "{\"msg\": \"Welcome to the Star Wars API!\"}";
     }
     
+    
+    //Fetches data from 10 hardcoded end points.
     @GET
-    @Path("{endpoint}/{specific}")
+    @Path("demo")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson(@PathParam("endpoint") String endpoint, @PathParam("specific") String specific) {
-        String url = "https://swapi.co/api/"+endpoint+'/';
+    public String getJsonList() {
         ApiFacade af = new ApiFacade();
-        return af.fetch(url,specific);
+        String url = "https://swapi.co/api/";
+        List<String> l = new ArrayList();
+        l.add("people/1");
+        l.add("people/2");
+        l.add("people/3");
+        l.add("people/4");
+        l.add("people/5");
+        l.add("people/6");
+        l.add("people/7");
+        l.add("people/8");
+        l.add("people/9");
+        l.add("people/10");
+        
+        return af.fetch(url, l).toString();
+        
     }
 
 }
