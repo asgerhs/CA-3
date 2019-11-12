@@ -122,4 +122,18 @@ public class UserFacadeTest {
 //        
 //        assertEquals(expected + 1, result);
     }
+    
+    //Not yet supported
+    @Disabled
+    @Test
+    public void editTest() {
+//        String expected = "Bodil";
+//        User result;
+//        
+//        users.get(0).setUserName(expected);
+//        facade.edit(users.get(0));
+//        result = users.get(0);
+//
+//        assertEquals(expected, result.getUserName());
+    }
 }
