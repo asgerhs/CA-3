@@ -103,7 +103,7 @@ public class UserFacadeTest {
     @Disabled
     @Test
     public void getAllTest() {
-        assertEquals(2, facade.getAll().size(), "Expects two rows in the database");
+        //assertEquals(2, facade.getAll().size(), "Expects two rows in the database");
     }
 
     //Not supported yet
