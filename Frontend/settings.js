@@ -1,6 +1,6 @@
 let URLs = {
-    Home: "/",
-    Login: "/login"
+    "Home": "/",
+    "Login": "/login"
 }
 
 
