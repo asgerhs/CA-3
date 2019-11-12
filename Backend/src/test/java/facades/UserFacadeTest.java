@@ -92,15 +92,9 @@ public class UserFacadeTest {
     @Test
     public void getVerifiedUserTest() throws AuthenticationException {
         String expected = users.get(0).getUserName();
-        String pass = users.get(0).getUserPass();
-        assertEquals(expected, facade.getVeryfiedUser(expected, pass).getUserName());
+        String pass = users.get(1).getUserPass();
+        System.out.println(pass);
+        assertEquals(expected, facade.getVeryfiedUser(expected, "badpassword").getUserName());
     }
 
-    public static void main(String[] args) {
-        User u = new User("a", "b");
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        em.persist(u);
-        em.getTransaction().commit();
-    }
 }
