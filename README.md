@@ -13,8 +13,7 @@
 
 ## Getting Started
 
-<details>
-<summary>**Initial Setup**</summary>
+### Initial Setup
 - Clone Project
 - Remove `.git` folder and init project with `git init`
 - Create a new repository and commit / push the code to this repository
@@ -25,10 +24,8 @@
 - Create a remote database on the deployment server, with the same name as the first one above (`xxx`)
 - Open the file `.travis.yml` and change the script `CREATE DATABASE startcode_test;` to use the same name as the local test-database (`xxx_test`)
 - In a terminal in the root of the project run `mvn test` and fix any errors, if any
-</details>
 
-<details>
-<summary>**Setup the deployment server (Only first time)**</summary>
+### Setup the deployment server (Only first time)
 - Locate the file `pom.xml` the the root of the Backend folder. Change the value of `remote.server` to the url for your own deployment server.
 - ssh into your deployment and run the command `sudo nano /opt/tomcat/bin/setenv.sh`
 - Add these lines to the files, but replace with your own values
@@ -37,10 +34,8 @@
 	- `export PW="<YOUR_DB_PASSWORD>"`
 	- `export CONNECTION_STR="jdbc:mysql://localhost:3306/"`
 - Save the file and run this command to restart tomcat `sudo systemctl restart tomcat`
-</details>
 
-<details>
-<summary>**Setup CI-control (Let Maven deploy when BUILD and TESTS are GREEN &#x1F49A;)**</summary>
+### Setup CI-control (Let Maven deploy when BUILD and TESTS are GREEN &#x1F49A;)
 - Go to travis-ci.com, and select the new repository in the dashboard
 - Click `More options` and select `settings`
 - Create two `Environment Variables`:
@@ -52,4 +47,3 @@
 	- If no errors, commit and push the changes to master branch
 	- Verify that the build started under the `Branches` section at travis-ci.com
 	- Verify after a few minutes that travis have deployed the war file on your deployment server.
-</details>
