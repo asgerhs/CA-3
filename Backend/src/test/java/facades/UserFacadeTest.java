@@ -19,6 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Disabled;
 
 /**
  *
@@ -92,15 +93,33 @@ public class UserFacadeTest {
     @Test
     public void getVerifiedUserTest() throws AuthenticationException {
         String expected = users.get(0).getUserName();
-        String pass = users.get(0).getUserPass();
-        assertEquals(expected, facade.getVeryfiedUser(expected, pass).getUserName());
+        String pass = users.get(1).getUserPass();
+        System.out.println(pass);
+        assertEquals(expected, facade.getVeryfiedUser(expected, "badpassword").getUserName());
+    }
+    
+    //Not supported yet
+    @Disabled
+    @Test
+    public void getAllTest() {
+        assertEquals(2, facade.getAll().size(), "Expects two rows in the database");
     }
 
-    public static void main(String[] args) {
-        User u = new User("a", "b");
+    //Not supported yet
+    @Disabled
+    @Test
+    public void addTest() {
         EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        em.persist(u);
-        em.getTransaction().commit();
+        int expected = 0;
+        int result = 0;
+        
+        try {
+            facade.add(new User("Martin", "csgonoob"));
+            result = em.createQuery("SELECT u From User u", User.class).getResultList().size();
+        } finally {
+            em.close();
+        }
+        
+        assertEquals(expected + 1, result);
     }
 }
