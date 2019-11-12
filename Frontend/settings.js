@@ -1,6 +1,8 @@
-let URLs = new Map(
-    ["Home", "/"],
-    ["Login", "/login"]);
+let URLs = {
+    Home: "/",
+    Login: "/login"
+}
+
 
 
 
