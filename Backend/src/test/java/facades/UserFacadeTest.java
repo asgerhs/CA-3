@@ -19,6 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Disabled;
 
 /**
  *
@@ -96,5 +97,29 @@ public class UserFacadeTest {
         System.out.println(pass);
         assertEquals(expected, facade.getVeryfiedUser(expected, "badpassword").getUserName());
     }
+    
+    //Not supported yet
+    @Disabled
+    @Test
+    public void getAllTest() {
+        assertEquals(2, facade.getAll().size(), "Expects two rows in the database");
+    }
 
+    //Not supported yet
+    @Disabled
+    @Test
+    public void addTest() {
+        EntityManager em = emf.createEntityManager();
+        int expected = 0;
+        int result = 0;
+        
+        try {
+            facade.add(new User("Martin", "csgonoob"));
+            result = em.createQuery("SELECT u From User u", User.class).getResultList().size();
+        } finally {
+            em.close();
+        }
+        
+        assertEquals(expected + 1, result);
+    }
 }
