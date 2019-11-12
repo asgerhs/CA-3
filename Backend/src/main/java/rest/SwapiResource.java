@@ -52,14 +52,7 @@ public class SwapiResource {
         l.add("people/3");
         l.add("people/4");
         l.add("people/5");
-        l.add("people/6");
-        l.add("people/7");
-        l.add("people/8");
-        l.add("people/9");
-        l.add("people/10");
-        
         return af.fetch(url, l).toString();
-        
     }
 
 }
