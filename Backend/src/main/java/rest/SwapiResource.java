@@ -6,14 +6,13 @@
 package rest;
 
 import facades.ApiFacade;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -33,25 +32,27 @@ public class SwapiResource {
     public SwapiResource() {
     }
 
-    /**
-     * Retrieves representation of an instance of rest.SwapiResource
-     * @return an instance of java.lang.String
-     */
     @GET
-    @Path("{endpoint}/{specific}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson(@PathParam("endpoint") String endpoint, @PathParam("specific") String specific) {
-        String url = "https://swapi.co/api/"+endpoint+'/';
+    public String getJson() {
+        return "{\"msg\": \"Welcome to the Star Wars API!\"}";
+    }
+    
+    
+    //Fetches data from 10 hardcoded end points.
+    @GET
+    @Path("demo")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getJsonList() {
         ApiFacade af = new ApiFacade();
-        return af.fetch(url,specific);
+        String url = "https://swapi.co/api/";
+        List<String> l = new ArrayList();
+        l.add("people/1");
+        l.add("people/2");
+        l.add("people/3");
+        l.add("people/4");
+        l.add("people/5");
+        return af.fetch(url, l).toString();
     }
 
-    /**
-     * PUT method for updating or creating an instance of SwapiResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_XML)
-    public void putXml(String content) {
-    }
 }
