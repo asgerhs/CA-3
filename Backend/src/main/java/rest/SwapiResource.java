@@ -33,10 +33,12 @@ public class SwapiResource {
     public SwapiResource() {
     }
 
-    /**
-     * Retrieves representation of an instance of rest.SwapiResource
-     * @return an instance of java.lang.String
-     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getJson() {
+        return "{\"msg\": \"Welcome to the Star Wars API!\"}";
+    }
+    
     @GET
     @Path("{endpoint}/{specific}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -46,12 +48,4 @@ public class SwapiResource {
         return af.fetch(url,specific);
     }
 
-    /**
-     * PUT method for updating or creating an instance of SwapiResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_XML)
-    public void putXml(String content) {
-    }
 }
