@@ -86,7 +86,6 @@ public class ApiFacade {
             }
             return res;
         } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
             return null;
         } finally {
             executor.shutdown();
