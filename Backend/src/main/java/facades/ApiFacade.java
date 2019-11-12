@@ -65,7 +65,7 @@ public class ApiFacade {
     //This fetch method returns a list of strings with json format
     //based on a given url and a list of specifics* (using HTTP connection and a request method).
     //See the definition of a "specific" above.
-    public List<String> fetch(String urlStr, ArrayList<String> specificList) {
+    public List<String> fetch(String urlStr, List<String> specificList) {
         final ExecutorService executor = Executors.newCachedThreadPool();
         try {
             Queue<Future<String>> queue = new ArrayBlockingQueue(specificList.size());
@@ -92,4 +92,5 @@ public class ApiFacade {
         }
     }
 
+    
 }
