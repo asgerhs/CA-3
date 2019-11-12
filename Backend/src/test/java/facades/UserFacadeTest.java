@@ -136,4 +136,22 @@ public class UserFacadeTest {
 //
 //        assertEquals(expected, result.getUserName());
     }
+    
+    //Not yet supported
+    @Disabled
+    @Test
+    public void deleteTest() {
+//        EntityManager em = emf.createEntityManager();
+//        int expected = 0;
+//        int result = 0;
+//        try {
+//            em.getTransaction().begin();
+//            expected = em.createQuery("SELECT u FROM User u", User.class).getResultList().size();
+//            facade.delete(users.get(0).getId());
+//            result = em.createQuery("SELECT u FROM User u", User.class).getResultList().size();
+//        } finally {
+//            em.close();
+//        }
+//        assertEquals(expected - 1, result);
+    }
 }
