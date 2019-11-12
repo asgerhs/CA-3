@@ -98,6 +98,7 @@ public class UserFacadeTest {
         assertEquals(expected, facade.getVeryfiedUser(expected, "badpassword").getUserName());
     }
     
+    /*
     //Not supported yet
     @Disabled
     @Test
@@ -121,5 +122,5 @@ public class UserFacadeTest {
         }
         
         assertEquals(expected + 1, result);
-    }
+    }*/
 }
