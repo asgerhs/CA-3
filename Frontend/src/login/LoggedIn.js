@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './style/App.css';
 import facade from './ApiFacade'
 
 export default function LoggedIn() {
@@ -7,7 +6,7 @@ export default function LoggedIn() {
     const [role, setRole] = useState();
 
     useEffect(() => {
-        facade.fetchData().then(res => (setUsername(res.userName), setRole(res.roleList))).catch(e => console.log(e));
+        facade.fetchData().then(res => {setUsername(res.userName); setRole(res.roleList)}).catch(e => console.log(e));
       }, [])
 
     return (
