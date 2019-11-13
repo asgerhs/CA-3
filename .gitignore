@@ -197,7 +197,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-
 ### Node ###
 # Logs
 logs
@@ -290,7 +289,5 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
-
-
 
 # End of https://www.gitignore.io/api/intellij+all
