@@ -1,5 +1,4 @@
 import React, { useState} from 'react';
-import './style/App.css';
 import Facade from './ApiFacade';
 import Login from './Login';
 import LoggedIn from './LoggedIn';

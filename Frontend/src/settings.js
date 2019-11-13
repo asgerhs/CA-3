@@ -1,25 +1,21 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-
 const URLs = {
     "Home": "/",
-    "Login": "login",
+    "Login": "/login",
     "Products": "/products",
     "ProductId": "/poroduct/:id",
     "Contact": "/contact",
-    "FAQ": "/FAQ",
+    "About": "/about",
+    "FAQ": "/faq",
     "Basket": "/cart",
-    "Checkout": "/checkout"
+    "Checkout": "/checkout",
+    "NoMatch": "*"
 }
 
-
 function URLSettings() {
-    const getURL = (key) => { return URLs.get(key) }
-    const getLink = (key) => { return <NavLink activeClassName="active" to={URLs.key}>{key}</NavLink> }
+    const getURL = (key) => { return URLs[key] }
 
     return {
-        getURL,
-        getLink
+        getURL
     }
 }
 export default URLSettings();
