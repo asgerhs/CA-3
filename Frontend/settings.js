@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-let URLs = {
-    "Home": "/",
-    "Login": "/login"
-}
+let URLs = new Map();
+URLs.set("Home", "/");
+URLs.set("Login", "/login");
+
 
 
 
