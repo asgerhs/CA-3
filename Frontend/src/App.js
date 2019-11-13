@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-do
 import './style/App.css';
 import Welcome from './Welcome';
 import LoginBox from './LoginBox';
-//import URLSettings from './settings'
+import URLSettings from './settings'
 
 function App() {
 
@@ -24,15 +24,17 @@ function App() {
     </div>
   )
 }
-//<li>{URLSettings.getLink("Home")}</li>
+
 const Header = () => {
   return (
     <ul className="header">
       
-      <li><NavLink activeClassName="active" exact to="/">Home</NavLink></li>
+      <li>{URLSettings.getLink("Home")}</li>
+      <li>{URLSettings.getLink("Login")}</li>
+      {/* <li><NavLink activeClassName="active" exact to="/">Home</NavLink></li>
       <li><NavLink activeClassName="active" to="/login">Login</NavLink></li>
       <li><NavLink activeClassName="active" to="/products">Products</NavLink></li>
-      <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
+      <li><NavLink activeClassName="active" to="/about">About</NavLink></li> */}
     </ul>
   )
 }
