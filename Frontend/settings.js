@@ -1,21 +1,23 @@
-let URLs = new Map(
-    ["Home", "/"],
-    ["Products", "/products"],
-    ["productId", "/poroduct/:id"],
-    ["Contact", "/contact"],
-    ["FAQ", "/FAQ"],
-    ["Basket", "/cart"],
-    ["Checkout", "/checkout"]);
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+
+let URLs = new Map();
+URLs.set("Home", "/");
+URLs.set("Login", "/login");
+
+
 
 
 
 function URLSettings() {
-    const getURL = (key) => { URLs.get(key) }
-    const getLink = (key) => { <Link to={URLs.get(key)}>{key}</Link> }
+    const getURL = (key) => { return URLs.get(key) }
+    const getLink = (key) => { return <Link to={URLs.get(key)}>{key}</Link> }
+    const getNavLink = (key) => { return <NavLink path={URLs.get(key)}>{key}</NavLink> }
 
     return {
         getURL,
-        getLink
+        getLink,
+        getNavLink
     }
 }
 export default URLSettings();
