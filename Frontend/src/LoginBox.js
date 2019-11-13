@@ -28,7 +28,7 @@ export default function App() {
                 <p>{error}</p>
                 </div>) : (<div>
                     <LoggedIn />
-                    <button onClick={logout}>Logout</button>
+                    <button className="btn btn-primary" onClick={logout}>Logout</button>
                 </div>)}
         </div>
     )
