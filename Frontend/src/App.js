@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
 import './style/App.css';
-import LoginBox from './login/LoginForm';
+import LoginForm from './login/LoginForm';
 import URLSettings from './settings'
+import Data from './Data';
 
 function App() {
 
@@ -13,8 +14,8 @@ function App() {
         <Header />
         <Switch>
           <Route exact path={URLSettings.getURL("Home")}> <Welcome /> </Route>
-          <Route path={URLSettings.getURL("Login")}> <LoginBox /> </Route>
-          <Route path={URLSettings.getURL("Products")}> <Products /> </Route>
+          <Route path={URLSettings.getURL("Login")}> <LoginForm /> </Route>
+          <Route path={URLSettings.getURL("Data")}> <Data /> </Route>
           <Route path={URLSettings.getURL("About")}> <About /> </Route>
           <Route path={URLSettings.getURL("NoMatch")}> <NoMatch /> </Route>
         </Switch>
@@ -29,7 +30,7 @@ const Header = () => {
     <ul className="header">
       <li><NavLink activeClassName="active" exact to={URLSettings.getURL("Home")}>Home</NavLink></li>
       <li><NavLink activeClassName="active" to={URLSettings.getURL("Login")}>Login</NavLink></li>
-      <li><NavLink activeClassName="active" to={URLSettings.getURL("Products")}>Products</NavLink></li>
+      <li><NavLink activeClassName="active" to={URLSettings.getURL("Data")}>Data</NavLink></li>
       <li><NavLink activeClassName="active" to={URLSettings.getURL("About")}>About</NavLink></li>
       <li><NavLink activeClassName="active" to={URLSettings.getURL("FAQ")}>FAQ</NavLink></li>
     </ul>
@@ -46,17 +47,16 @@ const Footer = () => {
   )
 }
 
-const Products = () => <div>Products</div>
-
 const About = () => <div>About</div>
 
 const NoMatch = () => <div>No match!</div>
 
+//If Welcome function reaches about 10 lines of code place the function in separate file.
 function Welcome() {
   return (
-          <div className="d-flex justify-content-center align-items-center link">
-              <a href="https://github.com/asgerhs/CA-3/blob/master/README.md">Press me for quick start guide!!</a>
-          </div>
+    <div className="d-flex justify-content-center align-items-center link">
+      <a href="https://github.com/asgerhs/CA-3/blob/master/README.md">Press me for quick start guide!!</a>
+    </div>
   )
 }
 

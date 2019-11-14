@@ -23,9 +23,10 @@ public class ApiFacade {
     //This fetch method returns a string with json format
     //based on a given url (using HTTP connection and a request method).
     public String fetch(String urlStr) {
+        HttpURLConnection con = null;
         try {
             URL url = new URL(urlStr);
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Accept", "application/json;charset=UTF-8");
             String jsonStr = "";
@@ -37,6 +38,8 @@ public class ApiFacade {
             return jsonStr;
         } catch (IOException e) {
             return null;
+        } finally {
+            con.disconnect();
         }
     }
 
@@ -45,9 +48,10 @@ public class ApiFacade {
     //*a specific is abstract for a given identity to a variable on an endpoint
     //example would be a specific person ID on a person API.
     public String fetch(String urlStr, String specific) {
+        HttpURLConnection con = null;
         try {
             URL url = new URL(urlStr + specific);
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Accept", "application/json;charset=UTF-8");
             String jsonStr = "";
@@ -58,7 +62,10 @@ public class ApiFacade {
             }
             return jsonStr;
         } catch (IOException e) {
+            e.printStackTrace();
             return null;
+        } finally {
+            con.disconnect();
         }
     }
 
@@ -86,6 +93,7 @@ public class ApiFacade {
             }
             return res;
         } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
             return null;
         } finally {
             executor.shutdown();
