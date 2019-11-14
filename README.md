@@ -9,6 +9,7 @@
 - Asger Hermind Sørensen
 - Emil Jogvan Bruun
 - Martin Eli Frederiksen
+- William Huusfeldt
 
 
 ## Getting Started
@@ -17,7 +18,7 @@
 - Clone Project
 - Remove `.git` folder and init project with `git init`
 - Create a new repository and commit / push the code to this repository
-- Do to *travis-ci.com* and Active the new repository
+- Go to *travis-ci.com* and Active the new repository
 - Create two new local databases (replace xxx with a name that makes sense for the project)
 	- `xxx`
 	- `xxx_test`
