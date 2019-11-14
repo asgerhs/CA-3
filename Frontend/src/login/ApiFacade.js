@@ -47,14 +47,19 @@ function ApiFacade() {
             .then(res => { setToken(res.token) })
     }
 
-    const fetchData = () => {
+    const fetchUser = () => {
         const options = makeOptions("GET", true); //True add's the token
         return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+    }
+
+    const fetchData = () => {
+        return fetch(URL + "/api/swapi/demo", makeOptions("GET")).then(handleHttpErrors);
     }
 
     return {
         login,
         logout,
+        fetchUser,
         fetchData
     }
 

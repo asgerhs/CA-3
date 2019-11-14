@@ -6,7 +6,7 @@ export default function LoggedIn() {
     const [role, setRole] = useState();
 
     useEffect(() => {
-        facade.fetchData().then(res => {setUsername(res.userName); setRole(res.roleList)}).catch(e => console.log(e));
+        facade.fetchUser().then(res => {setUsername(res.userName); setRole(res.roleList)}).catch(e => console.log(e));
       }, [])
 
     return (
