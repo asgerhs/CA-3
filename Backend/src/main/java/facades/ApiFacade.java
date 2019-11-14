@@ -29,6 +29,7 @@ public class ApiFacade {
             con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Accept", "application/json;charset=UTF-8");
+            con.addRequestProperty("User-Agent", "Mozilla/4.76;Chrome"); 
             String jsonStr = "";
             try ( Scanner scan = new Scanner(con.getInputStream())) {
                 while (scan.hasNext()) {
@@ -37,6 +38,7 @@ public class ApiFacade {
             }
             return jsonStr;
         } catch (IOException e) {
+            e.printStackTrace();
             return null;
         } finally {
             con.disconnect();
@@ -54,6 +56,7 @@ public class ApiFacade {
             con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Accept", "application/json;charset=UTF-8");
+            con.addRequestProperty("User-Agent", "Mozilla/4.76;Chrome");
             String jsonStr = "";
             try ( Scanner scan = new Scanner(con.getInputStream())) {
                 while (scan.hasNext()) {
@@ -100,5 +103,9 @@ public class ApiFacade {
         }
     }
 
+    public static void main(String[] args) {
+        ApiFacade f = new ApiFacade();
+        System.out.println(f.fetch("http://swapi.co/api/people/1"));
+    }
     
 }
