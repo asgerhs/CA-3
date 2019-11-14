@@ -103,9 +103,4 @@ public class ApiFacade {
         }
     }
 
-    public static void main(String[] args) {
-        ApiFacade f = new ApiFacade();
-        System.out.println(f.fetch("http://swapi.co/api/people/1"));
-    }
-    
 }
