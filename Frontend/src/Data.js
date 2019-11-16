@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Facade from './login/ApiFacade';
 
 export default function Data() {
-  
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+      Facade.fetchData().then(res => setData(res));
+    },[])
+    
     return (
       <div className="container">
         <h3>Fetched data</h3>
@@ -16,9 +21,7 @@ export default function Data() {
             </tr>
           </thead>
           <tbody>
-            <tr><td>{123}</td></tr>
-            {Facade.fetchData().then(data => data.map(p => console.log(p.name)))}
-            {/*<tr><td>{person.name}</td><td>{person.name}</td><td>{person.name}</td><td>{person.name}</td></tr> */}
+            {data.map((person, index)=> <tr key={index}><td>{person.name}</td><td>{person.height}</td><td>{person.gender}</td><td>{person.url}</td></tr> )}
           </tbody>
         </table>
       </div>
